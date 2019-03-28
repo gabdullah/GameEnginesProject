@@ -17,8 +17,7 @@ protected:
   virtual void destroyScene();
   virtual bool frameRenderingQueued(const Ogre::FrameEvent& fe);
   bool frameStarted(const Ogre::FrameEvent &evt);
-  void CreateCube(const btVector3 &Position, btScalar Mass, const btVector3 &scale, char * name);
-  Ogre::ManualObject *createCubeMesh(Ogre::String name, Ogre::String matName);
+  //void CreateCube(const btVector3 &Position, btScalar Mass, const btVector3 &scale, char * name);
  
 private:
   void defineTerrain(long x, long y);

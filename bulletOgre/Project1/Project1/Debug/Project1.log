@@ -2,37 +2,11 @@
   Unknown compiler version - please run the configure tests and report the results
   Tutorial3.cpp
   Unknown compiler version - please run the configure tests and report the results
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(67): warning C4316: 'MyMotionState': object allocated on the heap may not be aligned 16
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(146): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(147): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(148): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(149): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(150): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(163): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(164): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(165): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(166): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(167): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(168): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(169): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(170): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(171): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(172): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(173): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(174): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(175): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(176): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(177): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(178): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(179): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(180): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(181): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(182): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(201): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(212): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(214): warning C4305: 'argument': truncation from 'double' to 'const Ogre::Real'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(221): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(224): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(164): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
+c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(175): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(177): warning C4305: 'argument': truncation from 'double' to 'const Ogre::Real'
+c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(188): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(191): warning C4305: 'argument': truncation from 'double' to 'float'
   Generating Code...
-  Project1.vcxproj -> C:\Users\timot\gameEngineConcepts\Build9\bin\debug\Project1.exe
+  Project1.vcxproj -> C:\Users\gabeo\Desktop\classENV10\Build9\bin\debug\Project1.exe
           0 file(s) copied.
