@@ -1,12 +1,9 @@
-﻿  BaseApplication.cpp
+﻿  Tutorial3.cpp
   Unknown compiler version - please run the configure tests and report the results
-  Tutorial3.cpp
-  Unknown compiler version - please run the configure tests and report the results
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(164): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(175): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(177): warning C4305: 'argument': truncation from 'double' to 'const Ogre::Real'
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(188): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(191): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
-  Project1.vcxproj -> C:\Users\gabeo\Desktop\classENV10\Build9\bin\debug\Project1.exe
+c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(164): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
+c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(175): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(177): warning C4305: 'argument': truncation from 'double' to 'const Ogre::Real'
+c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(188): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\timot\gameengineconcepts\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(191): warning C4305: 'argument': truncation from 'double' to 'float'
+  Project1.vcxproj -> C:\Users\timot\gameEngineConcepts\Build9\bin\debug\Project1.exe
           0 file(s) copied.
