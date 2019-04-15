@@ -22,13 +22,13 @@ void FlightPhyics::operator()(float dt, float controls[3], float throttle){
 }
 
 btVector3 FlightPhyics::getForward(){
-    btTransform trans;
-    mRigidBody->getMotionState()->getWorldTransform(trans);
-    return trans.inverse()(btVector3(1,0,0)); //May need to change this to another unit vector;
+	btTransform trans;
+	mRigidBody->getMotionState()->getWorldTransform(trans);
+	return quatRotate(trans.getRotation().inverse(), (btVector3(1, 0, 0))); //May need to change this to another unit vector;
 }
 
 btVector3 FlightPhyics::getUp(){
     btTransform trans;
     mRigidBody->getMotionState()->getWorldTransform(trans);
-    return trans.inverse()(btVector3(0,1,0)); //May need to change this to another unit vector;
+    return quatRotate(trans.getRotation().inverse(),(btVector3(0,1,0))); //May need to change this to another unit vector;
 }
