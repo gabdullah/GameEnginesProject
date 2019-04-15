@@ -83,7 +83,7 @@ void TutorialApplication::CreatePlane(const btVector3 &Position, btScalar Mass, 
 	dynamicsWorld->addRigidBody(RigidBody);
 	collisionShapes.push_back(Shape);
 
-	flightPhyics = FlightPhyics(RigidBody, 1.0f, 1.0f, 1.0f);
+	flightPhyics = FlightPhyics(RigidBody, 0.001f, 0.001f, 0.001f);
 }
 void TutorialApplication::createBulletSim(void) {
 	///collision configuration contains default setup for memory, collision setup. Advanced users can create their own configuration.
@@ -316,7 +316,7 @@ void TutorialApplication::input(const Ogre::FrameEvent& fe) {
 	if (mKeyboard->isKeyDown(OIS::KC_D))
 		dirVec[2] -= 1;
 
-	flightPhyics(fe.timeSinceLastFrame, dirVec, 1.0f);
+	flightPhyics(fe.timeSinceLastFrame, dirVec, 0.0f);
 }
 
 void getTerrainImage(bool flipX, bool flipY, Ogre::Image& img)
