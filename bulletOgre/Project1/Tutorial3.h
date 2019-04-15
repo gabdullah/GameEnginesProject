@@ -18,8 +18,9 @@ protected:
   virtual bool frameRenderingQueued(const Ogre::FrameEvent& fe);
   bool frameStarted(const Ogre::FrameEvent &evt);
   //void CreateCube(const btVector3 &Position, btScalar Mass, const btVector3 &scale, char * name);
- 
+
 private:
+  void input(const Ogre::FrameEvent& fe);
   void defineTerrain(long x, long y);
   void initBlendMaps(Ogre::Terrain* terrain);
   void configureTerrainDefaults(Ogre::Light* light);

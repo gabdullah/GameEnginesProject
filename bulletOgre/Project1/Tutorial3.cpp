@@ -143,6 +143,37 @@ void TutorialApplication::createBulletSim(void) {
 
 		dynamicsWorld->addRigidBody(mGroundBody);
 		collisionShapes.push_back(groundShape);
+
+		Ogre::Vector3 size = Ogre::Vector3::ZERO;
+
+		Ogre::Entity* planeEntity;
+		Ogre::SceneNode* planeNode;
+		planeEntity = mSceneMgr->createEntity("RZR-002.mesh");
+		planeEntity->setCastShadows(true);
+		planeNode = mSceneMgr->getRootSceneNode()->createChildSceneNode();
+		planeNode->attachObject(planeEntity);
+		planeNode->scale(Ogre::Vector3(0.2, 0.2, 0.2));
+		Ogre::AxisAlignedBox boundingB = planeEntity->getBoundingBox();
+		boundingB.scale(Ogre::Vector3(0.2, 0.2, 0.2));
+		size = boundingB.getSize()*0.95f;
+		btTransform Transform;
+		Transform.setIdentity();
+		Transform.setOrigin(btVector3(2263, 150, 1200));
+		MyMotionState *MotionState = new MyMotionState(Transform, planeNode);
+
+		btVector3 HalfExtents(size.x*0.5f, size.y*0.5f, size.z*0.5f);
+		btCollisionShape *Shape = new btSphereShape(size.x*0.5f);
+		btVector3 LocalInertia;
+		Shape->calculateLocalInertia(1.0f, LocalInertia);
+		btRigidBody *RigidBody = new btRigidBody(1.0f, MotionState, Shape, LocalInertia);
+
+		// Store a pointer to the Ogre Node so we can update it later
+		RigidBody->setUserPointer((void *)(planeNode));
+
+		// Add it to the physics world
+		dynamicsWorld->addRigidBody(RigidBody);
+		collisionShapes.push_back(Shape);
+
 		//CreateCube(btVector3(2623, 500, 750), 1.0f, btVector3(0.3, 0.3, 0.3), "Cube0");
 		//CreateCube(btVector3(2263, 150, 1200), 1.0f, btVector3(0.2, 0.2, 0.2), "Cube1");
 		//CreateCube(btVector3(2253, 100, 1210), 1.0f, btVector3(0.2, 0.2, 0.2), "Cube2");
@@ -177,9 +208,9 @@ void TutorialApplication::createScene()
 	Ogre::Vector3 lightDir(.55, -.3, .75);
 	lightDir.normalise();
 
-	Ogre::Entity* plane = mSceneMgr->createEntity("RZR-002.mesh");
+	/*Ogre::Entity* plane = mSceneMgr->createEntity("RZR-002.mesh");
 	Ogre::SceneNode* planeNode = mSceneMgr->getRootSceneNode()->createChildSceneNode(Ogre::Vector3(2263, 50, 1200));
-	planeNode->attachObject(plane);
+	planeNode->attachObject(plane);*/
 
 	Ogre::Light* light = mSceneMgr->createLight("TestLight");
 	light->setType(Ogre::Light::LT_DIRECTIONAL);
@@ -285,7 +316,28 @@ bool TutorialApplication::frameRenderingQueued(const Ogre::FrameEvent& fe)
 		}
 	}
 
+
+
 	return ret;
+}
+
+void TutorialApplication::input(const Ogre::FrameEvent& fe) {
+	btVector3 dirVec = btVector3(0, 0, 0);
+
+	if (mKeyboard->isKeyDown(OIS::KC_W))
+		dirVec.x -= 1;
+	if (mKeyboard->isKeyDown(OIS::KC_S))
+		dirVec.x += 1;
+	if (mKeyboard->isKeyDown(OIS::KC_Q))
+		dirVec.y -= 1;
+	if (mKeyboard->isKeyDown(OIS::KC_E))
+		dirVec.y += 1;
+	if (mKeyboard->isKeyDown(OIS::KC_A))
+		dirVec.z += 1;
+	if (mKeyboard->isKeyDown(OIS::KC_D))
+		dirVec.z -= 1;
+
+	
 }
 
 void getTerrainImage(bool flipX, bool flipY, Ogre::Image& img)
