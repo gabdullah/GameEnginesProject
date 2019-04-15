@@ -12,10 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\BaseApplication.cpp" />
+    <ClCompile Include="..\flightPhysics.cpp" />
     <ClCompile Include="..\Tutorial3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\BaseApplication.h" />
+    <ClInclude Include="..\flightPhysics.hpp" />
     <ClInclude Include="..\Tutorial3.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -40,46 +40,51 @@ TutorialApplication::~TutorialApplication()
 {
 }
 
-/*void TutorialApplication::CreateCube(const btVector3 &Position, btScalar Mass, const btVector3 &scale, char * name){
-	// empty ogre vectors for the cubes size and position
+void TutorialApplication::CreatePlane(const btVector3 &Position, btScalar Mass, const btVector3 &scale){
 	Ogre::Vector3 size = Ogre::Vector3::ZERO;
 	Ogre::Vector3 pos = Ogre::Vector3::ZERO;
-	Ogre::SceneNode *boxNode;
-	Ogre::Entity *boxentity;
-	// Convert the bullet physics vector to the ogre vector
+	Ogre::Entity* planeEntity;
+	Ogre::SceneNode* planeNode;
+
 	pos.x = Position.getX();
 	pos.y = Position.getY();
 	pos.z = Position.getZ();
-	boxentity = mSceneMgr->createEntity(name, "cube.mesh");
-	//boxentity->setScale(Vector3(scale.x,scale.y,scale.z));
-	boxentity->setCastShadows(true);
-	boxNode = mSceneMgr->getRootSceneNode()->createChildSceneNode();
-	boxNode->attachObject(boxentity);
-	boxNode->scale(Ogre::Vector3(scale.getX(), scale.getY(), scale.getZ()));
-	//boxNode->setScale(Vector3(0.1,0.1,0.1));
-	Ogre::AxisAlignedBox boundingB = boxentity->getBoundingBox();
-	//Ogre::AxisAlignedBox boundingB = boxNode->_getWorldAABB();
-	boundingB.scale(Ogre::Vector3(scale.getX(), scale.getY(), scale.getZ()));
+	planeEntity = mSceneMgr->createEntity("plane", "RZR-002.mesh");
+	planeEntity->setCastShadows(true);
+	planeNode = mSceneMgr->getRootSceneNode()->createChildSceneNode(Ogre::Vector3(pos.x, pos.y, pos.z));
+	planeNode->attachObject(planeEntity);
+	//planeNode->scale(Ogre::Vector3(scale.getX(), scale.getY(), scale.getZ()));
+
+
+	/*Ogre::Entity* plane = mSceneMgr->createEntity("RZR-002.mesh");
+	Ogre::SceneNode* planeNode2 = mSceneMgr->getRootSceneNode()->createChildSceneNode(Ogre::Vector3(2263, 50, 1200));
+	planeNode2->attachObject(plane);*/
+
+
+
+	Ogre::AxisAlignedBox boundingB = planeEntity->getBoundingBox();
+	//boundingB.scale(Ogre::Vector3(scale.getX(), scale.getY(), scale.getZ()));
 	size = boundingB.getSize()*0.95f;
 	btTransform Transform;
 	Transform.setIdentity();
 	Transform.setOrigin(Position);
-	MyMotionState *MotionState = new MyMotionState(Transform, boxNode);
-	//Give the rigid body half the size
-	// of our cube and tell it to create a BoxShape (cube)
+	MyMotionState *MotionState = new MyMotionState(Transform, planeNode);
+
 	btVector3 HalfExtents(size.x*0.5f, size.y*0.5f, size.z*0.5f);
-	btCollisionShape *Shape = new btBoxShape(HalfExtents);
+	btCollisionShape *Shape = new btSphereShape(size.x*0.5f);
 	btVector3 LocalInertia;
-	Shape->calculateLocalInertia(Mass, LocalInertia);
-	btRigidBody *RigidBody = new btRigidBody(Mass, MotionState, Shape, LocalInertia);
+	Shape->calculateLocalInertia(1.0f, LocalInertia);
+	btRigidBody *RigidBody = new btRigidBody(0.1f, MotionState, Shape, LocalInertia);
 
 	// Store a pointer to the Ogre Node so we can update it later
-	RigidBody->setUserPointer((void *)(boxNode));
+	RigidBody->setUserPointer((void *)(planeNode));
 
 	// Add it to the physics world
 	dynamicsWorld->addRigidBody(RigidBody);
 	collisionShapes.push_back(Shape);
-}*/
+
+	flightPhyics = FlightPhyics(RigidBody, 1.0f, 1.0f, 1.0f);
+}
 void TutorialApplication::createBulletSim(void) {
 	///collision configuration contains default setup for memory, collision setup. Advanced users can create their own configuration.
 	collisionConfiguration = new btDefaultCollisionConfiguration();
@@ -144,35 +149,7 @@ void TutorialApplication::createBulletSim(void) {
 		dynamicsWorld->addRigidBody(mGroundBody);
 		collisionShapes.push_back(groundShape);
 
-		Ogre::Vector3 size = Ogre::Vector3::ZERO;
-
-		Ogre::Entity* planeEntity;
-		Ogre::SceneNode* planeNode;
-		planeEntity = mSceneMgr->createEntity("RZR-002.mesh");
-		planeEntity->setCastShadows(true);
-		planeNode = mSceneMgr->getRootSceneNode()->createChildSceneNode();
-		planeNode->attachObject(planeEntity);
-		planeNode->scale(Ogre::Vector3(0.2, 0.2, 0.2));
-		Ogre::AxisAlignedBox boundingB = planeEntity->getBoundingBox();
-		boundingB.scale(Ogre::Vector3(0.2, 0.2, 0.2));
-		size = boundingB.getSize()*0.95f;
-		btTransform Transform;
-		Transform.setIdentity();
-		Transform.setOrigin(btVector3(2263, 150, 1200));
-		MyMotionState *MotionState = new MyMotionState(Transform, planeNode);
-
-		btVector3 HalfExtents(size.x*0.5f, size.y*0.5f, size.z*0.5f);
-		btCollisionShape *Shape = new btSphereShape(size.x*0.5f);
-		btVector3 LocalInertia;
-		Shape->calculateLocalInertia(1.0f, LocalInertia);
-		btRigidBody *RigidBody = new btRigidBody(1.0f, MotionState, Shape, LocalInertia);
-
-		// Store a pointer to the Ogre Node so we can update it later
-		RigidBody->setUserPointer((void *)(planeNode));
-
-		// Add it to the physics world
-		dynamicsWorld->addRigidBody(RigidBody);
-		collisionShapes.push_back(Shape);
+		CreatePlane(btVector3(2063, 150, 1250), 1.0f, btVector3(1.2, 1.2, 1.2));
 
 		//CreateCube(btVector3(2623, 500, 750), 1.0f, btVector3(0.3, 0.3, 0.3), "Cube0");
 		//CreateCube(btVector3(2263, 150, 1200), 1.0f, btVector3(0.2, 0.2, 0.2), "Cube1");
@@ -265,6 +242,8 @@ void TutorialApplication::createScene()
 	// mSceneMgr->setSkyPlane(
 	//   true, plane, "Examples/SpaceSkyPlane", 1500, 40, true, 1.5, 150, 150);
 	createBulletSim();
+	
+	
 }
 
 void TutorialApplication::createFrameListener()
@@ -316,28 +295,28 @@ bool TutorialApplication::frameRenderingQueued(const Ogre::FrameEvent& fe)
 		}
 	}
 
-
+	input(fe);
 
 	return ret;
 }
 
 void TutorialApplication::input(const Ogre::FrameEvent& fe) {
-	btVector3 dirVec = btVector3(0, 0, 0);
+	float dirVec[3] = { 0, 0, 0 };
 
 	if (mKeyboard->isKeyDown(OIS::KC_W))
-		dirVec.x -= 1;
+		dirVec[0] -= 1;
 	if (mKeyboard->isKeyDown(OIS::KC_S))
-		dirVec.x += 1;
+		dirVec[0] += 1;
 	if (mKeyboard->isKeyDown(OIS::KC_Q))
-		dirVec.y -= 1;
+		dirVec[1] -= 1;
 	if (mKeyboard->isKeyDown(OIS::KC_E))
-		dirVec.y += 1;
+		dirVec[1] += 1;
 	if (mKeyboard->isKeyDown(OIS::KC_A))
-		dirVec.z += 1;
+		dirVec[2] += 1;
 	if (mKeyboard->isKeyDown(OIS::KC_D))
-		dirVec.z -= 1;
+		dirVec[2] -= 1;
 
-	
+	flightPhyics(fe.timeSinceLastFrame, dirVec, 1.0f);
 }
 
 void getTerrainImage(bool flipX, bool flipY, Ogre::Image& img)

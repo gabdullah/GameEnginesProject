@@ -18,7 +18,7 @@ protected:
   virtual void destroyScene();
   virtual bool frameRenderingQueued(const Ogre::FrameEvent& fe);
   bool frameStarted(const Ogre::FrameEvent &evt);
-  //void CreateCube(const btVector3 &Position, btScalar Mass, const btVector3 &scale, char * name);
+  void CreatePlane(const btVector3 &Position, btScalar Mass, const btVector3 &scale);
 
 private:
   void input(const Ogre::FrameEvent& fe);
