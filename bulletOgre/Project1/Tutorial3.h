@@ -4,6 +4,7 @@
 #include "btBulletDynamicsCommon.h"
 #include "btHeightfieldTerrainShape.h"
 #include "BaseApplication.h"
+#include "flightPhysics.hpp"
  
 class TutorialApplication : public BaseApplication
 {
@@ -36,7 +37,7 @@ private:
   btDiscreteDynamicsWorld* dynamicsWorld;
   btCollisionShape* groundShape;
   btAlignedObjectArray<btCollisionShape*> collisionShapes;
- 
+  FlightPhyics flightPhyics;
 };
  
 

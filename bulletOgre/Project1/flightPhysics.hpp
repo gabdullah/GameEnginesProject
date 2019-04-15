@@ -1,6 +1,7 @@
 #include "btBulletDynamicsCommon.h"
 
 class FlightPhyics{
+	FlightPhyics() : FlightPhyics(nullptr, 0.0f, 0.0f, 0.0f) {};
     FlightPhyics(btRigidBody * rb, float c_d, float c_l, float thrust): 
         mRigidBody(rb), 
         mC_d(c_d), 
