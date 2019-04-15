@@ -1,6 +1,8 @@
 #include"flightPhysics.hpp"
 
 void FlightPhyics::operator()(float dt, float controls[3], float throttle){
+	if (!mRigidBody) return; //Flight physics needs to be initialized for this operator to work;
+
     btVector3 flightDir = getForward();
     btVector3 liftDir = getUp();
     btVector3 starboard = flightDir.cross(liftDir);
@@ -17,7 +19,6 @@ void FlightPhyics::operator()(float dt, float controls[3], float throttle){
     btVector3 yaw = liftDir * controlSurfaces[2] * controls[2];
 
     mRigidBody->applyTorqueImpulse((pitch + roll + yaw) * dt);
-    
 }
 
 btVector3 FlightPhyics::getForward(){
