@@ -24,7 +24,7 @@ public:
 		setBlock(r.x, r.y, r.z, t);
 	}
 private:
-	float blockSize;
+	const static float blockSize = 1.0f;
 	unsigned char getHeight(unsigned char, unsigned char);
 	void updateChunkMesh();
 
