@@ -17,7 +17,6 @@ void FlightPhyics::operator()(float dt, float controls[3], float throttle){
     btVector3 yaw = liftDir * controlSurfaces[2] * controls[2];
 
     mRigidBody->applyTorqueImpulse((pitch + roll + yaw) * dt);
-    
 }
 
 btVector3 FlightPhyics::getForward(){
