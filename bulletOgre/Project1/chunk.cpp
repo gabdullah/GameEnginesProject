@@ -1,5 +1,7 @@
 #include"chunk.h"
 
+const float Chunk::blockSize = 1.0f;
+
 void Chunk::updateChunkMesh() {
 	if (!mNode) return;
 
