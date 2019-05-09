@@ -53,14 +53,12 @@ void TutorialApplication::CreatePlane(const btVector3 &Position, btScalar Mass, 
 	planeEntity->setCastShadows(true);
 	planeNode = mSceneMgr->getRootSceneNode()->createChildSceneNode(Ogre::Vector3(pos.x, pos.y, pos.z));
 	planeNode->attachObject(planeEntity);
-	//planeNode->scale(Ogre::Vector3(scale.getX(), scale.getY(), scale.getZ()));
 
-
-	/*Ogre::Entity* plane = mSceneMgr->createEntity("RZR-002.mesh");
-	Ogre::SceneNode* planeNode2 = mSceneMgr->getRootSceneNode()->createChildSceneNode(Ogre::Vector3(2263, 50, 1200));
-	planeNode2->attachObject(plane);*/
-
-
+	mCamera->setNearClipDistance(.1);
+	Ogre::SceneNode* cam_node = planeNode->createChildSceneNode();
+	cam_node->setPosition(0, 10, -20);
+	cam_node->setOrientation(Ogre::Quaternion(Ogre::Degree(180), Ogre::Vector3(0, 1, 0)));
+	cam_node->attachObject(mCamera);
 
 	Ogre::AxisAlignedBox boundingB = planeEntity->getBoundingBox();
 	//boundingB.scale(Ogre::Vector3(scale.getX(), scale.getY(), scale.getZ()));
@@ -83,7 +81,7 @@ void TutorialApplication::CreatePlane(const btVector3 &Position, btScalar Mass, 
 	dynamicsWorld->addRigidBody(RigidBody);
 	collisionShapes.push_back(Shape);
 
-	flightPhyics = FlightPhyics(RigidBody, 0.001f, 0.001f, 0.001f);
+	flightPhyics = FlightPhyics(RigidBody, 0.0001f, 0.001f, 20.0f);
 }
 void TutorialApplication::createBulletSim(void) {
 	///collision configuration contains default setup for memory, collision setup. Advanced users can create their own configuration.
@@ -149,45 +147,31 @@ void TutorialApplication::createBulletSim(void) {
 		dynamicsWorld->addRigidBody(mGroundBody);
 		collisionShapes.push_back(groundShape);
 
-		CreatePlane(btVector3(2063, 150, 1250), 1.0f, btVector3(1.2, 1.2, 1.2));
-
-		//CreateCube(btVector3(2623, 500, 750), 1.0f, btVector3(0.3, 0.3, 0.3), "Cube0");
-		//CreateCube(btVector3(2263, 150, 1200), 1.0f, btVector3(0.2, 0.2, 0.2), "Cube1");
-		//CreateCube(btVector3(2253, 100, 1210), 1.0f, btVector3(0.2, 0.2, 0.2), "Cube2");
-		//CreateCube(btVector3(2253, 200, 1210), 1.0f, btVector3(0.2, 0.2, 0.2), "Cube3");
-		//CreateCube(btVector3(2253, 250, 1210), 1.0f, btVector3(0.2, 0.2, 0.2), "Cube4");
-		//CreateCube(btVector3(1963, 150, 1660),1.0f,btVector3(0.2,0.2,0.2),"Cube1");
-
+		CreatePlane(btVector3(2063, 1500, 1250), 1.0f, btVector3(1.2, 1.2, 1.2));
 	}
-
-
 }
-
-
 
 void TutorialApplication::createScene()
 {
-	mCamera->setPosition(Ogre::Vector3(1863, 60, 1650));
+	/*mCamera->setPosition(Ogre::Vector3(1863, 60, 1650));
 	mCamera->lookAt(Ogre::Vector3(2263, 50, 1200));
-	mCamera->setNearClipDistance(.1);
+	mCamera->setNearClipDistance(.1);*/
 
 	bool infiniteClip =
 		mRoot->getRenderSystem()->getCapabilities()->hasCapability(
 			Ogre::RSC_INFINITE_FAR_PLANE);
 
-	if (infiniteClip)
+	/*if (infiniteClip)
 		mCamera->setFarClipDistance(0);
 	else
-		mCamera->setFarClipDistance(50000);
+		mCamera->setFarClipDistance(50000);*/
+
+	//Chunk chunk(mSceneMgr, mRoot, Ogre::Vector3::ZERO);
 
 	mSceneMgr->setAmbientLight(Ogre::ColourValue(.2, .2, .2));
 
 	Ogre::Vector3 lightDir(.55, -.3, .75);
 	lightDir.normalise();
-
-	/*Ogre::Entity* plane = mSceneMgr->createEntity("RZR-002.mesh");
-	Ogre::SceneNode* planeNode = mSceneMgr->getRootSceneNode()->createChildSceneNode(Ogre::Vector3(2263, 50, 1200));
-	planeNode->attachObject(plane);*/
 
 	Ogre::Light* light = mSceneMgr->createLight("TestLight");
 	light->setType(Ogre::Light::LT_DIRECTIONAL);
@@ -316,7 +300,7 @@ void TutorialApplication::input(const Ogre::FrameEvent& fe) {
 	if (mKeyboard->isKeyDown(OIS::KC_D))
 		dirVec[2] -= 1;
 
-	flightPhyics(fe.timeSinceLastFrame, dirVec, 0.0f);
+	flightPhyics(fe.timeSinceLastFrame, dirVec, 1.0f);
 }
 
 void getTerrainImage(bool flipX, bool flipY, Ogre::Image& img)

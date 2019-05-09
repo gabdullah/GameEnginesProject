@@ -27,6 +27,7 @@ private:
 	Ogre::SceneNode * attachGeometry(Ogre::ManualObject *, const Ogre::Vector3 &);
 	const static float blockSize;
 	unsigned char getHeight(unsigned char, unsigned char);
+	Ogre::ManualObject* createCubeMesh(Ogre::String name, bool, bool, bool, bool, bool);
 	void updateChunkMesh();
 
 	BlockType getBlock(unsigned char x, unsigned char y, unsigned char z) { return blocks[0xff * 0xff * x + 0xff * y + z]; }

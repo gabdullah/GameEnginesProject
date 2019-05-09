@@ -5,6 +5,7 @@
 #include "btHeightfieldTerrainShape.h"
 #include "BaseApplication.h"
 #include "flightPhysics.hpp"
+#include "chunk.h"
  
 class TutorialApplication : public BaseApplication
 {
@@ -19,6 +20,7 @@ protected:
   virtual bool frameRenderingQueued(const Ogre::FrameEvent& fe);
   bool frameStarted(const Ogre::FrameEvent &evt);
   void CreatePlane(const btVector3 &Position, btScalar Mass, const btVector3 &scale);
+  //Ogre::ManualObject* TutorialApplication::createCubeMesh(Ogre::String name);
 
 private:
   void input(const Ogre::FrameEvent& fe);
