@@ -4,7 +4,7 @@
 
 using std::string; using std::to_string
 
-string getName(string, unsigned char, unsigned char, unsigned char);
+char * getName(string);
 
 const float Chunk::blockSize = 1.0f;
 
@@ -59,6 +59,10 @@ Ogre::SceneNode * Chunk::attachGeometry(Ogre::ManualObject * myGeo, const Ogre::
 	node->attachObject(myGeo)
 }
 
-string getName(string prefix, unsigned char x, unsigned char y, unsigned char z){
-	return prefix+to_string(x)+to_string(y)+to_string(z)
+string getName(string prefix){
+	static int * i;
+	if(!i)
+		i = new int(0);
+	
+	(prefix+to_string((*i)++)).c_str()
 }
