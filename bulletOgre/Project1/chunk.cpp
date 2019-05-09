@@ -59,7 +59,7 @@ Ogre::SceneNode * Chunk::attachGeometry(Ogre::ManualObject * myGeo, const Ogre::
 	node->attachObject(myGeo)
 }
 
-string getName(string prefix){
+char * getName(string prefix){
 	static int * i;
 	if(!i)
 		i = new int(0);
