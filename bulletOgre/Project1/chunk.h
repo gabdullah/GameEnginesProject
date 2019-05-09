@@ -24,6 +24,7 @@ public:
 		setBlock(r.x, r.y, r.z, t);
 	}
 private:
+	Ogre::SceneNode * attachGeometry(Ogre::ManualObject *, const Ogre::Vector3 &);
 	const static float blockSize;
 	unsigned char getHeight(unsigned char, unsigned char);
 	void updateChunkMesh();
@@ -34,7 +35,6 @@ private:
 	Ogre::SceneManager * mManager;
 	Ogre::SceneNode * mNode;
 	Ogre::Root * mRoot;
-	Ogre::ManualObject * manObj;
 
 	BlockType blocks[0xff * 0xff * 0xff];
 };

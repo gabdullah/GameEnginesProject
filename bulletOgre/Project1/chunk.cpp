@@ -1,4 +1,10 @@
+#include<string>
+
 #include"chunk.h"
+
+using std::string; using std::to_string
+
+string getName(string, unsigned char, unsigned char, unsigned char);
 
 const float Chunk::blockSize = 1.0f;
 
@@ -25,6 +31,7 @@ void Chunk::updateChunkMesh() {
 
 	for (int x = 0; x <= 255; ++x) for (int y = 0; y <= 255; ++y) for (int z = 0; z <= 255; ++z) {
 		//Basic idea: generate a face iff the face is on the outside of the chunk or the face is not adjacent to any block
+		
 		if (x==0 || isEmpty(x - 1, y, z)) {
 			//Generate -x face
 		}
@@ -45,4 +52,13 @@ void Chunk::updateChunkMesh() {
 		}
 	}
 	mNode->attachObject(manObj);
+}
+
+Ogre::SceneNode * Chunk::attachGeometry(Ogre::ManualObject * myGeo, const Ogre::Vector3 & pos){
+	Ogre::SceneNode * node = mNone->createChildSceneNode(pos);
+	node->attachObject(myGeo)
+}
+
+string getName(string prefix, unsigned char x, unsigned char y, unsigned char z){
+	return prefix+to_string(x)+to_string(y)+to_string(z)
 }
