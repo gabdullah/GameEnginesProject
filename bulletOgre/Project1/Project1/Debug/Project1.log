@@ -1,11 +1,2 @@
-﻿  Tutorial3.cpp
-  Unknown compiler version - please run the configure tests and report the results
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(71): warning C4316: 'MyMotionState': object allocated on the heap may not be aligned 16
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(152): warning C4305: 'argument': truncation from 'double' to 'const btScalar'
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(172): warning C4305: 'argument': truncation from 'double' to 'Ogre::Real'
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(183): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(185): warning C4305: 'argument': truncation from 'double' to 'const Ogre::Real'
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(196): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\gabeo\desktop\classenv10\projects\gameenginesproject\bulletogre\project1\tutorial3.cpp(199): warning C4305: 'argument': truncation from 'double' to 'float'
-  Project1.vcxproj -> C:\Users\gabeo\Desktop\classENV10\Build9\bin\debug\Project1.exe
-          0 file(s) copied.
+﻿  flightPhysics.cpp
+LINK : fatal error LNK1104: cannot open file 'C:\Users\gabeo\Desktop\classENV10\Build9\bin\debug\Project1.exe'

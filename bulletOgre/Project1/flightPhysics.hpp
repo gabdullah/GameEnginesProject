@@ -7,7 +7,11 @@ public:
         mRigidBody(rb), 
         mC_d(c_d), 
         mC_l(c_l),
-        max_thrust(thrust) {};
+        max_thrust(thrust) {
+		controlSurfaces[0] = 50;
+		controlSurfaces[1] = 50;
+		controlSurfaces[2] = 50;
+	};
 	void operator()(float dt, float controls[3], float throttle);
 private:
     btVector3 getForward();
