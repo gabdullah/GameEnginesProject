@@ -6,8 +6,9 @@ void FlightPhyics::operator()(float dt, float controls[3], float throttle){
     btVector3 starboard = flightDir.cross(liftDir);
 
 	float v = mRigidBody->getLinearVelocity().length();
+    btVector3 vSqInFlight = mRigidBody->getLinearVelocity().dot(flightDir)*v
 
-    btVector3 lift = liftDir * (mC_l * v * v);
+    btVector3 lift = liftDir * (mC_l * vSqInFlight);
     btVector3 drag = flightDir * (mC_d * v * v) * (-1);
     btVector3 thrust = flightDir * max_thrust * throttle;
     mRigidBody->applyCentralImpulse((thrust+drag+lift) * dt);
@@ -22,7 +23,7 @@ void FlightPhyics::operator()(float dt, float controls[3], float throttle){
 btVector3 FlightPhyics::getForward(){
 	btTransform trans;
 	mRigidBody->getMotionState()->getWorldTransform(trans);
-	return quatRotate(trans.getRotation().inverse(), (btVector3(1, 0, 0))); //May need to change this to another unit vector;
+	return quatRotate(trans.getRotation().inverse(), (btVector3(0, 0, 1))); //May need to change this to another unit vector;
 }
 
 btVector3 FlightPhyics::getUp(){
